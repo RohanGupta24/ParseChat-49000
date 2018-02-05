@@ -48,9 +48,14 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
 
+    @IBAction func onLogOut(_ sender: Any) {
+        PFUser.logOut()
+        self.performSegue(withIdentifier: "logoutSegue", sender: nil)
+    }
     @IBOutlet weak var chatTableView: UITableView!
     @IBOutlet weak var messageTextField: UITextField!
     
+    @IBOutlet weak var logoutButton: UIBarButtonItem!
     @IBAction func onSendMessage(_ sender: Any) {
         
         let chatMessage = Message()

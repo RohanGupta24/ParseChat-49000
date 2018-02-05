@@ -33,12 +33,22 @@ class LoginViewController: UIViewController {
         // call sign up function on the object
         newUser.signUpInBackground { (success: Bool, error: Error?) in
             if let error = error {
+                let alert = UIAlertController(title: "My Alert", message: "\(error.localizedDescription)", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
+                    NSLog("The \"OK\" alert occured.")
+                }))
+                self.present(alert, animated: true, completion: nil)
                 print(error.localizedDescription)
             } else {
                 print("User Registered successfully")
                 // manually segue to logged in view
                 PFUser.logInWithUsername(inBackground: usernameA, password: passwordA) { (user: PFUser?, error: Error?) in
                     if let error = error {
+                        let alert = UIAlertController(title: "My Alert", message: "\(error.localizedDescription)", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
+                            NSLog("The \"OK\" alert occured.")
+                        }))
+                        self.present(alert, animated: true, completion: nil)
                         print("User log in failed: \(error.localizedDescription)")
                     } else {
                         print("User logged in successfully")
@@ -55,7 +65,11 @@ class LoginViewController: UIViewController {
         
         PFUser.logInWithUsername(inBackground: username, password: password) { (user: PFUser?, error: Error?) in
             if let error = error {
-                print("User log in failed: \(error.localizedDescription)")
+                let alert = UIAlertController(title: "My Alert", message: "\(error.localizedDescription)", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
+                    NSLog("The \"OK\" alert occured.")
+                }))
+                self.present(alert, animated: true, completion: nil)
             } else {
                 print("User logged in successfully")
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)

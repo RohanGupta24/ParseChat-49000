@@ -162,15 +162,32 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ldG-bE-ESn"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Chat" id="5pl-gu-dKE"/>
+                    <navigationItem key="navigationItem" title="Chat" id="5pl-gu-dKE">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" style="plain" id="Ox8-qg-blA">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QQK-8L-bPb">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" red="1" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onLogOut:" destination="VoK-8g-nWh" eventType="touchUpInside" id="moN-zq-laS"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="logoutSegue" id="Yv7-fm-AEK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="chatTableView" destination="f7A-6Y-r3i" id="xiv-kq-QAf"/>
+                        <outlet property="logoutButton" destination="Ox8-qg-blA" id="7iq-CB-j0B"/>
                         <outlet property="messageTextField" destination="VVa-90-ONN" id="nPI-YF-SIW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Xa-Ur-lzv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1911.2" y="133.5832083958021"/>
+            <point key="canvasLocation" x="994" y="124"/>
         </scene>
         <!--NavigationController-->
         <scene sceneID="jsU-mw-qFr">
@@ -188,7 +205,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bp2-4U-EQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="985" y="134"/>
+            <point key="canvasLocation" x="588" y="134"/>
         </scene>
     </scenes>
 </document>
